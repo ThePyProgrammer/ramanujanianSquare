@@ -1,0 +1,173 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{%
+  \Huge Ramanujan's Square \\
+  \LARGE Detailed Analysis\\
+  \Large A DV2136 Proposal}
+
+\author{by\\
+\Large Afzal (h1810003) \\
+\Large Prannaya Gupta (h1810124) \\
+\Large Yap Yuan Xi (h1810166) \\
+}
+
+\date{\Large 14 August 2019}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\subsection{Magic Squares}
+    A magic square is a square whose column and rows give the same sum. The first Magic Square was created in China. Magic Squares are very fun to solve. In this project, we will be solving a 4 by 4 magic square.
+    \subsubsection{Pan-diagonals}
+            In this kind of Magic Square, the one of its diagonals adds up to the same sum as the sum of its rows and columns
+    \subsubsection{Bi-diagonals}
+        In this kind of Magic Square, the sum of both its diagonals both add up to the same sum as the sum of its rows and columns
+    \subsubsection{Rectangle}
+        These kind of Magic Squares have a different amount of numbers in one dimension than the other\\
+        \textbf{Note: These Squares cannot be Pan-diagonal or Bi-diagonal}\\
+        Example:
+        \def\arraystretch{2}
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                62 & 44 & 23 & 01 \\
+                \hline
+                03 & 61 & 02 & 64 \\
+                \hline
+                38 & 28 & 39 & 25 \\
+                \hline
+                27 & 37 & 26 & 40 \\
+                \hline
+                22 & 04 & 63 & 41 \\                    
+                \hline
+                43 & 21 & 42 & 24 \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \subsubsection{Non-Repeating}
+            These kind of Magic Squares have no numbers that can be found in 2 boxes
+\subsection{Srinivasa Ramanujan}
+    Magic squares are squares where the rows and columns have the same sum. This magic squares has more than that, it has many other ways to get the same sum. This is known as Srinivasa Ramanujan's Magic Square.
+    Notice that the top row makes up his birthday, 22 December 1887.
+
+\section{The Problem}
+% Table showing the numbers in the square
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        22 & 12 & 18 & 87 \\
+        \hline
+        88 & 17 & 09 & 25 \\
+        \hline
+        10 & 24 & 89 & 16 \\
+        \hline
+        19 & 86 & 23 & 11 \\
+        \hline
+    \end{tabular}
+\end{center}
+\space
+This, as we noticed, is a bi-diagonal, non-repeating square unless input otherwise.
+Is there formula/method to generate the magic squares from any given birthday?
+
+\newpage
+\section{Solution}
+After looking at it for a while, we noticed that some of the numbers are pretty similar. Although the numbers were scattered we noticed that numbers above 80 appeared in 4 squares and are pretty similar to the year he was born in, 87. We realised that by using his birthday as base, we expressed the entire square in terms of it.\\
+After trying a few combinations between the numbers around 20 in the magic square, we realised the following\\
+
+\begin{center}
+Letting D be day, M be month, C be century and Y be year of the birthday,\\
+We expressed the table as shown below\\
+
+\def\arraystretch{2}
+\begin{tabular}{|c|c|c|c|}
+    \hline
+    D + 0 & M + 0 & C + 0 & Y + 0 \\
+    \hline
+    Y + 1 & C - 1 & M - 3 & D + 3 \\
+    \hline
+    M - 2 & D + 2 & Y + 2 & C - 2 \\
+    \hline
+    C + 1 & Y - 1 & D + 1 & M - 1 \\
+    \hline
+\end{tabular}
+\end{center}
+
+\section{Extensions/ Generalisations}
+    \subsection{Another Form}
+        Is there another method to generate squares with the same properties?
+        
+    \subsubsection{Variation 1: Diagonal}
+        Letting D,M,C,Y be the day, month, century and year of the birthday respectively. \\
+        Let start with the diagonal. \\
+        \def\arraystretch{2}
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                D + 0 & Y + 2 & M - 1 & C - 1 \\
+                \hline
+                C - 2 & M + 0 & Y - 1 & D + 3 \\
+                \hline
+                Y + 1 & D + 1 & C + 0 & M - 2 \\
+                \hline
+                M + 1 & C - 3 & D + 2 & Y + 0 \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \subsubsection{Variation 2: Box}
+        Letting D,M,C,Y be the day, month, century and year of the birthday respectively. \\
+        Let start with the Upper Left 2 by 2 square. \\
+        \def\arraystretch{2}
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                C - 2 & M + 1 & D + 2 & Y - 1 \\
+                \hline
+                Y + 1 & D + 0 & M + 0 & C - 1 \\
+                \hline
+                M - 1 & C + 0 & Y + 0 & D + 1 \\
+                \hline
+                D + 2 & Y - 1 & C - 2 & M + 1 \\
+                \hline
+            \end{tabular}
+        \end{center}
+        
+        
+    \subsubsection{Variation 3: Column}
+        Letting D,M,C,Y be the day, month, century and year of the birthday respectively. \\
+        Let start with the Left most Column. \\
+        
+        \def\arraystretch{2}
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                D + 0 & C + 2 & Y - 1 & M - 1 \\
+                \hline
+                M + 0 & Y - 2 & C - 1 & D + 3 \\
+                \hline
+                C + 0 & D + 2 & M + 1 & Y - 3 \\
+                \hline
+                Y + 0 & M - 2 & D + 1 & C + 1 \\
+                \hline
+            \end{tabular}
+        \end{center}
+        
+    \subsection{Method of making these squares}
+        Looking at the above Variations. We believe that there is a method in the creation of these kinds of squares.
+        
+        This is the method we found while creating the squares
+        
+        \begin{enumerate}
+            \item Set the beginning (Column, Row etc.) 
+            \item Set each box to base of one of the four given variables 
+            \item Set one number to differ
+            \item Using that number set the others, keeping the beginning unchanged
+            \item Check if it all add up and make changes if necessary.
+        \end{enumerate}
+\end{document}
