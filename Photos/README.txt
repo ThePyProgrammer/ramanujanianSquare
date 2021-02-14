@@ -1,0 +1,3 @@
+MagicSquare.png
+MagicSquareHeirarchy.png
+RamanujanSquare.JPG
